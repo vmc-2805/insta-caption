@@ -1,0 +1,11 @@
+# Insta Caption Generator
+
+Insta Caption Generator is an AI-powered tool to instantly generate custom, engaging Instagram captions based on your desired topic, tone, format, and preferences.
+
+## About
+
+- Website: https://instacaptiongenerator.com
+- Purpose: Help content creators and users write better Instagram captions faster using AI.
+- Features: Support for different tones, languages, emojis, and hashtags. Includes history and quick copying.
+
+This file provides context for LLMs interacting with the site.
