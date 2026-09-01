@@ -3,8 +3,8 @@ import fs from 'fs';
 import path from 'path';
 
 const pubDir = path.resolve('public');
-const logoPath = path.join(pubDir, 'Logoicon.png');
-const faviconPath = path.join(pubDir, 'Logoicon.png');
+const logoPath = path.join(pubDir, 'Logo.png');
+const faviconPath = path.join(pubDir, 'icon.png');
 
 async function run() {
   if (fs.existsSync(faviconPath)) {

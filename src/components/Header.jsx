@@ -4,23 +4,18 @@ import { motion } from 'framer-motion';
 
 export default function Header({ darkMode, toggleDarkMode }) {
   return (
-    <header className="w-full pt-3 pb-6 md:pt-3 md:pb-8 px-4 flex flex-col items-center justify-center text-center border-b border-gray-200 dark:border-gray-800">
+    <header className="w-full pt-2 pb-3 md:pt-2 md:pb-4 px-4 flex flex-col items-center justify-center text-center border-b border-gray-200 dark:border-gray-800">
       <div className="max-w-[1440px] mx-auto w-full px-4 md:px-6">
         {/* Top bar with Toggle & Logo */}
-        <div className="flex justify-between items-center w-full mb-2 md:mb-4">
+        <div className="flex justify-between items-center w-full mb-1">
           <motion.div 
             initial={{ opacity: 0, x: -10 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.4 }}
-            className="flex items-center gap-3"
+            className="flex items-center"
           >
-            <div className="flex items-center justify-center p-1.5 rounded-lg bg-transparent">
-              <img src="/Logoicon.png" alt="Insta Caption Generator Logo" className="h-10 object-contain" />
-            </div>
-            <div className="text-left">
-              <span className="text-xl font-extrabold tracking-tight text-gray-900 dark:text-white">
-                Insta Caption Generator
-              </span>
+            <div className="flex items-center justify-center rounded-lg bg-transparent">
+              <img src="/Logo.png" alt="Insta Caption Generator Logo" className="h-16 md:h-20 max-w-[280px] md:max-w-xs object-contain" />
             </div>
           </motion.div>
 

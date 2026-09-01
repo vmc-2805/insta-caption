@@ -4,17 +4,17 @@
 
 @theme {
   --font-sans: "Montserrat", sans-serif;
-  --color-primary-50: #ebedff;
-  --color-primary-100: #dce0ff;
-  --color-primary-200: #b5beff;
-  --color-primary-300: #9c51fb;
-  --color-primary-400: #625dfc;
-  --color-primary-500: #3c34fc;
-  --color-primary-600: #2924d5;
-  --color-primary-700: #1b16a4;
-  --color-primary-800: #070182;
-  --color-primary-900: #080296;
-  --color-primary-950: #04014f;
+  --color-primary-50: #fae8ff;
+  --color-primary-100: #f3e8ff;
+  --color-primary-200: #e9d5ff;
+  --color-primary-300: #d8b4fe;
+  --color-primary-400: #c084fc;
+  --color-primary-500: #a855f7;
+  --color-primary-600: #9333ea;
+  --color-primary-700: #841cd4;
+  --color-primary-800: #6b21a8;
+  --color-primary-900: #581c87;
+  --color-primary-950: #3b0764;
 }
 
 @layer base {

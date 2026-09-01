@@ -402,7 +402,7 @@ export default function App() {
                   className="w-full bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl p-8 md:p-10 shadow-xs flex flex-col items-center justify-center text-center py-20"
                 >
                   <div className="w-16 h-16 flex items-center justify-center mb-4">
-                    <img src="/Logoicon.png" alt="Insta Caption Generator Logo" className="w-full h-full object-contain opacity-50 dark:opacity-70 grayscale" />
+                    <img src="/icon.png" alt="Insta Caption Generator Logo" className="w-full h-full object-contain opacity-50 dark:opacity-70 grayscale" />
                   </div>
                   <h3 className="text-base font-bold text-gray-800 dark:text-white mb-1.5">
                     Generate Captions
