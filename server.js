@@ -169,18 +169,27 @@ app.get('/api/status', (req, res) => {
   });
 });
 
-// Serve compiled static client files in production
-const buildPath = path.join(__dirname, 'dist');
-if (fs.existsSync(buildPath)) {
-  app.use(express.static(buildPath));
-  app.get('/*splat', (req, res) => {
-    res.sendFile(path.join(buildPath, 'index.html'));
-  });
-  console.log(`[Server] Serving production React build from ${buildPath}`);
-} else {
-  console.log(`[Server] Development mode: API listening on port ${PORT}. Run frontend dev server separately.`);
-}
+// Export the app so it can be reused as a Vercel serverless function (see api/index.js)
+export default app;
 
-app.listen(PORT, () => {
-  console.log(`[Server] Server listening on http://localhost:${PORT}`);
-});
+// Only start a standalone HTTP server when this file is run directly (`node server.js`).
+// On Vercel the app is imported by api/index.js and Vercel handles the HTTP layer itself.
+const isDirectRun = process.argv[1] && path.resolve(process.argv[1]) === __filename;
+
+if (isDirectRun) {
+  // Serve compiled static client files in production
+  const buildPath = path.join(__dirname, 'dist');
+  if (fs.existsSync(buildPath)) {
+    app.use(express.static(buildPath));
+    app.get('/*splat', (req, res) => {
+      res.sendFile(path.join(buildPath, 'index.html'));
+    });
+    console.log(`[Server] Serving production React build from ${buildPath}`);
+  } else {
+    console.log(`[Server] Development mode: API listening on port ${PORT}. Run frontend dev server separately.`);
+  }
+
+  app.listen(PORT, () => {
+    console.log(`[Server] Server listening on http://localhost:${PORT}`);
+  });
+}
