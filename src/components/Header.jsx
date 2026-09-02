@@ -1,6 +1,7 @@
 import React from 'react';
 import { FiSun, FiMoon } from 'react-icons/fi';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 export default function Header({ darkMode, toggleDarkMode }) {
   return (
@@ -14,12 +15,16 @@ export default function Header({ darkMode, toggleDarkMode }) {
             transition={{ duration: 0.4 }}
             className="flex items-center"
           >
-            <div className="flex items-center justify-center rounded-lg bg-transparent">
-              <img src="/Logo.png" alt="Insta Caption Generator Logo" className="h-16 md:h-20 max-w-[280px] md:max-w-xs object-contain" />
-            </div>
+            <Link to="/" className="flex items-center justify-center rounded-lg bg-transparent">
+              <img src="/Logo.png" alt="Insta Caption Generator Logo" className="h-16 md:h-20 max-w-[280px] md:max-w-xs object-contain dark:invert dark:brightness-150" />
+            </Link>
           </motion.div>
 
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-4 md:gap-6">
+            <nav className="hidden sm:flex items-center gap-4 text-sm font-semibold text-gray-600 dark:text-gray-300">
+              <Link to="/features" className="hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Features</Link>
+              <Link to="/how-to-use" className="hover:text-primary-600 dark:hover:text-primary-400 transition-colors">How to Use</Link>
+            </nav>
             {/* Theme Toggle */}
             <motion.button
               initial={{ opacity: 0, scale: 0.9 }}
