@@ -49,6 +49,7 @@ async function generateContentWithRotation(prompt, image) {
   }
 
   let attempts = 0;
+  let lastError = '';
   // Try up to the total number of keys available
   while (attempts < apiKeys.length) {
     const apiKey = apiKeys[currentKeyIndex];
@@ -112,6 +113,7 @@ async function generateContentWithRotation(prompt, image) {
       // Read API error status
       const errorData = await response.json().catch(() => ({}));
       const message = errorData.error?.message || `HTTP ${response.status}`;
+      lastError = `${response.status}: ${message}`;
       console.error(`[Gemini Rotator] Key Index ${currentKeyIndex} failed: ${message} (Status Code: ${response.status})`);
 
       // Increment attempt count and shift index to the next key (round-robin)
@@ -120,13 +122,14 @@ async function generateContentWithRotation(prompt, image) {
       console.log(`[Gemini Rotator] Rotating to Key Index ${currentKeyIndex}...`);
     } catch (err) {
       console.error(`[Gemini Rotator] Network error using Key Index ${currentKeyIndex}:`, err.message);
+      lastError = err.message;
       attempts++;
       currentKeyIndex = (currentKeyIndex + 1) % apiKeys.length;
       console.log(`[Gemini Rotator] Rotating to Key Index ${currentKeyIndex}...`);
     }
   }
 
-  throw new Error("All configured Gemini API keys failed or hit rate limits (429). Please verify your keys.");
+  throw new Error(`All ${apiKeys.length} configured Gemini API key(s) failed (model: ${GEMINI_MODEL}). Last error: ${lastError || 'unknown'}.`);
 }
 
 // REST Endpoint to generate captions
