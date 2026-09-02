@@ -26,6 +26,9 @@ const apiKeys = process.env.GEMINI_API_KEYS
 // Pointer to keep track of the current working API key index
 let currentKeyIndex = 0;
 
+// Gemini model is configurable via env (GEMINI_MODEL), falls back to gemini-3.5-flash
+const GEMINI_MODEL = process.env.GEMINI_MODEL || 'gemini-3.5-flash';
+
 console.log(`[Gemini Rotator] Loaded ${apiKeys.length} API keys from environment.`);
 if (apiKeys.length === 0) {
   console.warn('[Gemini Rotator] WARNING: No API keys configured in GEMINI_API_KEYS inside your .env file.');
@@ -51,8 +54,12 @@ async function generateContentWithRotation(prompt, image) {
     const apiKey = apiKeys[currentKeyIndex];
     console.log(`[Gemini Rotator] Attempting request using Key Index ${currentKeyIndex} (Attempt ${attempts + 1}/${apiKeys.length})...`);
 
+<<<<<<< Updated upstream
     const modelName = process.env.GEMINI_MODEL || 'gemini-1.5-flash';
     const url = `https://generativelanguage.googleapis.com/v1beta/models/${modelName}:generateContent?key=${apiKey}`;
+=======
+    const url = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent?key=${apiKey}`;
+>>>>>>> Stashed changes
     
     // Prepare multimodal parts payload
     const parts = [];
