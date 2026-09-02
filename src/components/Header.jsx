@@ -16,7 +16,7 @@ export default function Header({ darkMode, toggleDarkMode }) {
             className="flex items-center"
           >
             <Link to="/" className="flex items-center justify-center rounded-lg bg-transparent">
-              <img src="/Logo.png" alt="Insta Caption Generator Logo" className="h-16 md:h-20 max-w-[280px] md:max-w-xs object-contain dark:invert dark:brightness-150" />
+              <img src={darkMode ? "/Logowhite.png" : "/Logo.png"} alt="Insta Caption Generator Logo" className="h-16 md:h-20 max-w-[280px] md:max-w-xs object-contain" />
             </Link>
           </motion.div>
 
