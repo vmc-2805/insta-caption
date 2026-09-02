@@ -1,0 +1,10 @@
+## Project Details
+
+- [Vite](https://vitejs.dev/): Frontend built with React and Vite
+- [Express.js](https://expressjs.com/): Backend server handling API requests
+- [Gemini API](https://ai.google.dev/): Used for generating Instagram captions with AI
+
+## Optional
+
+- [React Documentation](https://react.dev/): Reference for React components
+- [Oxc](https://oxc.rs): Rust-based linter for the Vite plugin
