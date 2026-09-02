@@ -51,7 +51,8 @@ async function generateContentWithRotation(prompt, image) {
     const apiKey = apiKeys[currentKeyIndex];
     console.log(`[Gemini Rotator] Attempting request using Key Index ${currentKeyIndex} (Attempt ${attempts + 1}/${apiKeys.length})...`);
 
-    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent?key=${apiKey}`;
+    const modelName = process.env.GEMINI_MODEL || 'gemini-1.5-flash';
+    const url = `https://generativelanguage.googleapis.com/v1beta/models/${modelName}:generateContent?key=${apiKey}`;
     
     // Prepare multimodal parts payload
     const parts = [];
